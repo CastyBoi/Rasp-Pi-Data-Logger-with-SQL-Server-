@@ -7,4 +7,5 @@ General Overview of Data Logger:
   - Data is then recorded and sent to a SQL Server for storage
   - (Only posts after verifiying it will not double record the same status)
   - Bash Scripts and CronTab are used to check the internet connectivity and restart the Application if necessary.
+
 I took some inspiration from various other data logging programs I was able to find, and added in some extra bits to fit my specific application.
