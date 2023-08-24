@@ -1,0 +1,18 @@
+[Unit]
+Description=Data Logger. Posts to Server.
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=User # This should be the username of your RPi 
+Restart=always
+RestartSec=3
+ExecStartPre=/bin/sleep 15 # This sets a delay to allow other processes to run, helps keep bugs away I think.
+ExecStart=/usr/bin/python3 /home/User/Documents/Program.py # Include the path to your python interpreter, then leave a space and put to the program you want to run
+
+StandardOutput=append:/home/User/Documents/Program_Log.txt # Good practice to setup a couple of logging files for errors
+StandardError=append:/home/User/Documents/Program_Log_2.txt # TBH I am only logging errors here so the 'print' output in the program is just kinda in limbo
+
+[Install]
+WantedBy=multi-user.target
